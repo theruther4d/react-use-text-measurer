@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "declaration": true,
+    "outDir": "dist",
+    "module": "esnext",
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src", "jest-setup.ts"],
+  "$schema": "https://json.schemastore.org/tsconfig"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "react-use-text-measurer",
+  "version": "1.0.0",
+  "description": "Synchronously measure text size in an offscreen <canvas /> via react hook.",
+  "sideEffects": false,
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build:types": "tsc --project tsconfig.json --emitDeclarationOnly",
+    "build:source": "rollup -c",
+    "build": "del dist && mkdir dist && yarn build:source && yarn build:types",
+    "prepare": "install-peers",
+    "test": "jest"
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "useTextMeasurer",
+    "synchronous",
+    "text",
+    "measure",
+    "measurer"
+  ],
+  "author": "Josh Rutherford",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/plugin-transform-runtime": "^7.13.8",
+    "@babel/preset-env": "^7.13.8",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/react-hooks": "^5.0.3",
+    "@types/jest": "^26.0.20",
+    "@types/react": "^17.0.2",
+    "canvas": "^2.6.1",
+    "del-cli": "^3.0.1",
+    "install-peers-cli": "^2.2.0",
+    "jest": "^26.6.3",
+    "rollup": "^2.40.0",
+    "ts-jest": "^26.5.2",
+    "ts-node": "^9.1.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.13.8"
+  }
+}
