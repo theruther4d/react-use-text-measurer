@@ -7,9 +7,10 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src", "jest-setup.ts"],
+  "include": ["src"],
   "$schema": "https://json.schemastore.org/tsconfig"
 }

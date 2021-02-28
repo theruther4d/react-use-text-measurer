@@ -21,7 +21,7 @@ const TextMeasurerContext = createContext<{
 
 export const TextMeasurementProvider = ({children, ...props}: CanvasProps) => {
   const ref = useRef<HTMLCanvasElement>();
-  const scaled = useRef(false);
+  const [scaled, setScaled] = useState(false);
   const [cache] = useState(new Map<string, number>());
 
   const measurer = useCallback(
@@ -39,7 +39,7 @@ export const TextMeasurementProvider = ({children, ...props}: CanvasProps) => {
       cache.set(key, width);
       return width;
     },
-    [cache]
+    [cache, scaled]
   );
 
   const context = useMemo(() => ({ref, cache, measurer}), [
@@ -50,7 +50,7 @@ export const TextMeasurementProvider = ({children, ...props}: CanvasProps) => {
 
   useLayoutEffect(function scaleCanvasForDisplay() {
     if (!ref.current) return;
-    if (scaled.current) return;
+    if (scaled) return;
 
     const ctx = ref.current.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
@@ -68,7 +68,7 @@ export const TextMeasurementProvider = ({children, ...props}: CanvasProps) => {
     ref.current.style.width = CANVAS_WIDTH + 'px';
     ref.current.style.height = CANVAS_HEIGHT + 'px';
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    scaled.current = true;
+    setScaled(true);
   });
 
   return (

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Integration test</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="./index.umd.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+      const {useTextMeasurer, TextMeasurementProvider} = UseTextMeasurer;
+        const sampleText = 'Lorem Ipsum Dolor Sit Amet';
+      const App = () => {
+        const measureA = useTextMeasurer('700 32px Arial');
+        const measureB = useTextMeasurer('normal 1.5rem Times New Roman');
+        const measureC = useTextMeasurer('300 16px Courier');
+
+        return (
+          <React.Fragment>
+            <div data-testid="a">
+              <h1>A:</h1>
+              <div>
+                Sample:{' '}
+                <span
+                  data-testid="text"
+                  style={{
+                    fontSize: 32,
+                    fontWeight: 700,
+                    fontFamily: 'Arial',
+                  }}
+                >
+                  {sampleText}
+                </span>
+              </div>
+              <div>
+                Measured:
+                <span data-testid="measurement">{measureA(sampleText)}</span>
+              </div>
+            </div>
+            <div data-testid="b">
+              <h1>B:</h1>
+              <div>
+                Sample:{' '}
+                <span
+                  data-testid="text"
+                  style={{
+                    fontSize: '1.5rem',
+                    fontFamily: 'Times New Roman',
+                  }}
+                >
+                  {sampleText}
+                </span>
+              </div>
+              <div>
+                Measured:
+                <span data-testid="measurement">{measureB(sampleText)}</span>
+              </div>
+            </div>
+            <div data-testid="c">
+              <h1>C:</h1>
+              <div>
+                Sample:{' '}
+                <span
+                  data-testid="text"
+                  style={{
+                    fontSize: 16,
+                    fontWeight: 300,
+                    fontFamily: 'Courier',
+                  }}
+                >
+                  {sampleText}
+                </span>
+              </div>
+              <div>
+                Measured:
+                <span data-testid="measurement">{measureC(sampleText)}</span>
+              </div>
+            </div>
+          </React.Fragment>
+        );
+      }
+
+      ReactDOM.render(
+        <TextMeasurementProvider><App /></TextMeasurementProvider>,
+        document.getElementById('root')
+      );
+    </script>
+  </body>
+</html>

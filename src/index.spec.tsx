@@ -1,9 +1,12 @@
+/**
+ * @jest-environment jsdom
+ */
 import React, {ComponentType} from 'react';
 import {render, screen} from '@testing-library/react';
 import {renderHook} from '@testing-library/react-hooks';
 import {TextMeasurementProvider, useTextMeasurer} from '.';
 
-describe('TextMeasurementProvider', () => {
+export const tests = describe('TextMeasurementProvider', () => {
   it('Renders the <canvas /> and passes-through props.', () => {
     render(
       <TextMeasurementProvider

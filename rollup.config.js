@@ -13,6 +13,16 @@ export default [
         sourcemap: true,
       },
       {
+        file: 'dist/index.umd.js',
+        name: 'UseTextMeasurer',
+        format: 'umd',
+        sourcemap: true,
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
+      {
         file: pkg.module,
         format: 'es',
         sourcemap: true,
