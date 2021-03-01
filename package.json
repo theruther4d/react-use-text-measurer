@@ -1,24 +1,23 @@
 {
   "name": "react-use-text-measurer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Synchronously measure text size in an offscreen <canvas /> via react hook.",
   "sideEffects": false,
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist/index.cjs.js",
-    "dist/index.cjs.js.map",
-    "dist/index.esm.js",
-    "dist/index.esm.js.map",
-    "dist/index.d.ts"
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/index.js.map",
+    "dist/cjs/index.js",
+    "dist/cjs/index.js.map"
   ],
   "scripts": {
-    "build:types": "tsc --project tsconfig.json --emitDeclarationOnly",
-    "build:source": "rollup -c",
-    "build": "del dist && mkdir dist && yarn build:source && yarn build:types",
-    "prepare": "install-peers",
-    "test": "jest"
+    "build": "del dist && npx tsc -p tsconfig.json && npx tsc -p tsconfig-cjs.json",
+    "test": "jest",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "react",
@@ -37,13 +36,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
-    "@babel/plugin-transform-runtime": "^7.13.8",
-    "@babel/preset-env": "^7.13.8",
-    "@babel/preset-react": "^7.12.13",
-    "@babel/preset-typescript": "^7.13.0",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^17.1.0",
-    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@storybook/addon-actions": "^6.1.20",
+    "@storybook/addon-essentials": "^6.1.20",
+    "@storybook/addon-links": "^6.1.20",
+    "@storybook/react": "^6.1.20",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/react-hooks": "^5.0.3",
@@ -52,25 +48,18 @@
     "@types/jest-environment-puppeteer": "^4.4.1",
     "@types/puppeteer": "^5.4.3",
     "@types/react": "^17.0.2",
+    "babel-loader": "^8.2.2",
     "canvas": "^2.6.1",
-    "connect": "^3.7.0",
     "del-cli": "^3.0.1",
-    "install-peers-cli": "^2.2.0",
-    "jest": "^26.6.3",
+    "jest": "26.6.0",
     "jest-puppeteer": "^4.4.0",
-    "path": "^0.12.7",
     "puppeteer": "^8.0.0",
     "react": ">16.8.4",
     "react-dom": ">16.8.4",
-    "rollup": "^2.40.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "serve-static": "^1.14.1",
     "ts-jest": "^26.5.2",
     "ts-node": "^9.1.1",
     "tslib": "^2.1.0",
     "typescript": "^4.2.2"
   },
-  "dependencies": {
-    "@babel/runtime": "^7.13.8"
-  }
+  "dependencies": {}
 }

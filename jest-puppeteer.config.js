@@ -1,6 +1,6 @@
 module.exports = {
   server: {
-    command: 'node integration/start.js',
     port: 8080,
+    command: 'yarn storybook --ci --port 8080 --quiet',
   },
 };

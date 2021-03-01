@@ -1,9 +1,0 @@
-dist
-src
-.vscode
-integration
-.babelrc
-.gitignore
-package-lock.json
-.prettierrc.json
-.DS_Store

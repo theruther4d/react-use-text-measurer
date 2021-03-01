@@ -2,7 +2,9 @@ const MAX_DEVIATION = 2;
 
 export const tests = describe('Integration', () => {
   it(`useTextMeasurer is within ${MAX_DEVIATION}px accuracy`, async () => {
-    await page.goto('http://localhost:8080');
+    await page.goto(
+      'http://localhost:8080/iframe.html?id=integration--integration&viewMode=story'
+    );
 
     const sectionA = await page.$('[data-testid="a"]');
     const textA = await sectionA.$('[data-testid="text"]');
