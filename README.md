@@ -1,6 +1,19 @@
 # react-use-text-measurer
 
-A hook for synchronously measuring text in react applications without DOM-thrashing! Uses an offscreen `<canvas />` along with [`CanvasRenderingContext2D.measureText()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/measureText) to make measurements.
+A hook for synchronously measuring text in react applications using an offscreen `<canvas />` along with [`CanvasRenderingContext2D.measureText()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/measureText) to make measurements.
+
+```tsx
+const YourComponent = (props) => {
+  const measureTitle = useTextMeasurer("600 24px 'Source Sans Pro'");
+
+  return (
+    <>
+      <h1>{props.title}</h1>
+      <div>👆 {measureTitle(props.title)}px</div>
+    </>
+  )
+}
+```
 
 ## Installation
 
@@ -34,13 +47,15 @@ Then, use the hook to create a measuring function by providing a [CSS font speci
 ```tsx
 const YourComponent = (props) => {
   const measureTitle = useTextMeasurer("600 24px 'Source Sans Pro'");
-  const titleWidth = measureTitle(props.title);
 
   return (
     <>
       <h1>{props.title}</h1>
-      <div>({titleWidth}px) 👆</div>
+      <div>👆 {measureTitle(props.title)}px</div>
     </>
   )
 }
 ```
+
+## Why?
+For example, to build a [windowed list without DOM measuring](https://github.com/theruther4d/react-use-text-measurer/tree/master/src/stories/integration.stories.tsx#L17).
