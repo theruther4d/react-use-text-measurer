@@ -58,4 +58,4 @@ const YourComponent = (props) => {
 ```
 
 ## Why?
-For example, to build a [windowed list without DOM measuring](https://github.com/theruther4d/react-use-text-measurer/tree/master/src/stories/integration.stories.tsx#L17).
+For example, to build a [windowed list without DOM measuring](https://github.com/theruther4d/react-use-text-measurer/blob/master/src/stories/examples.stories.tsx#L16).
