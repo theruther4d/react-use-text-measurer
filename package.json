@@ -1,6 +1,6 @@
 {
   "name": "react-use-text-measurer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Synchronously measure text size in an offscreen <canvas /> via react hook.",
   "sideEffects": false,
   "main": "dist/index.cjs.js",
