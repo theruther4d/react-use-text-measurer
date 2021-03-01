@@ -1,6 +1,8 @@
 import pkg from './package.json';
 import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
+import externalDeps from 'rollup-plugin-peer-deps-external';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default [
   {
@@ -29,12 +31,16 @@ export default [
       },
     ],
     plugins: [
+      externalDeps({
+        includeDependencies: true,
+      }),
       resolve(),
       babel({
         extensions: ['.tsx'],
         babelHelpers: 'runtime',
         plugins: [['@babel/transform-runtime', {useESModules: true}]],
       }),
+      commonjs(),
     ],
   },
 ];
