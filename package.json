@@ -29,6 +29,10 @@
     "measurer"
   ],
   "author": "Josh Rutherford",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theruther4d/react-use-text-measurer"
+  },
   "license": "ISC",
   "peerDependencies": {
     "react": ">16.8.4",
